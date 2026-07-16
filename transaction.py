@@ -6,3 +6,6 @@ class Transaction:
 
     def __str__(self):
         return f"You had {self.type}: ${self.amount} on {self.date}"
+    
+    def __repr__(self):
+        return f"Transaction({self.amount}, '{self.date}', '{self.type}')"
