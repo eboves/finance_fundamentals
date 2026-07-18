@@ -13,7 +13,22 @@ class Account:
         return f"{self.name}, Balance: ${self.amount}"
 
     def deposit(self, amount):
-        self.amount = amount + self.amount   
-        today = datetime.today().strftime('%Y-%m-%d')
+        self.amount = self.amount + amount  
+        today = self._get_today()
         transac = Transaction(amount, today, 'deposit')
         self.transactions.append(transac)
+
+    def withdraw(self, amount):
+
+        if amount > self.amount:
+            return False
+        else:
+            self.amount = self.amount - amount
+            today = self._get_today()
+            transac = Transaction(amount, today, "withdraw")
+            self.transactions.append(transac)
+
+        return True
+
+    def _get_today(self):
+        return datetime.today().strftime('%Y-%m-%d')
