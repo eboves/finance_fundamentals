@@ -7,6 +7,7 @@ chase = CreditCard("Chase Sapphire", 0, "2026-07-18", 5000)
 
 
 chase.deposit(500)
+chase.withdraw(200)
 print(chase)
 
 
